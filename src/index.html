@@ -4,16 +4,44 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Заголовок страницы</title>
+      <link href="../node_modules/@pnotify/core/dist/PNotify.css" rel="stylesheet" type="text/css" />
+      <link href="../node_modules/@pnotify/mobile/dist/PNotifyMobile.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+   
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.0.0/modern-normalize.min.css"
       integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
       crossorigin="anonymous"
     />
+
+
   </head>
   <body>
-    <div class="photo-card">
+    <section class="section">
+      <div class="container">
+          <h1 class="title"> GOIT-JS-13_IMAGE-FINDER</h1>
+        <form class="search-form" id="search-form">
+          <label > =====>
+            <!-- <span class="material-icons">
+            search
+          </span> -->
+        <input type="text" class="form__input" name="query" autocomplete="off" placeholder="Search images..." /></label>
+         <button type="submit" class="form__button--submit"><span class="material-icons">
+          search
+        </span> 
+      </button>
+      <button type="reset" class="form__button--reset">reset</button>
+        </form>
+
+        <ul class="gallery">
+         
+          <!-- Список <li> с карточками изображений -->
+        </ul>
+      </div>
+      
+    </section>
+    <!-- <div class="photo-card">
       <img src="" alt="" />
     
       <div class="stats">
@@ -34,7 +62,7 @@
           176019
         </p>
       </div>
-    </div>
+    </div> -->
   
 
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
