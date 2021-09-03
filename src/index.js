@@ -48,14 +48,14 @@ const hendlerSubmin = (e) => {
   
 }
 
-function printMurkup  (resultSearch) {
+// function printMurkup  (resultSearch) {
        
 
 
 
-  refs.printGalerry.insertAdjacentHTML('beforeend', murkup(resultSearch()) )
+//   refs.printGalerry.insertAdjacentHTML('beforeend', murkup(resultSearch) )
 
-}
+// }
 
 
 
