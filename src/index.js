@@ -1,7 +1,7 @@
 import './sass/main.scss';
 import '@pnotify/core/dist/BrightTheme.css';
 import apiServise from "./api/apiService";
-
+// import murkup from "./tamplates/murkup.hbs"
 import { alert, defaultModules } from '@pnotify/core';
 import * as PNotifyMobile from '@pnotify/mobile';
 
@@ -18,8 +18,25 @@ const refs = {
 alert({
   text: 'Атата'
 });
+   const search = dog;
+    const numberPage = 2;
 
 
+//  const apiServise = async ({search, numberPage })=> {
+//    e.preventDefault()
+  
+ 
+//         const requestData= await fetch(`https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${search}&page=${numberPage}&per_page=12&key=23145424-17de0e2191faefedd106abc58`)
+//         const resultRequestData = await requestData.json();
+//         console.log(resultRequestData);
+//         //   alert({
+//         //      text: 'А что так можно Было!!!'
+//         // });
+        
+      
+// }
+
+// console.log(apiServise(dog,2));
 // const searBtnchImg = e => {
   
 // }
