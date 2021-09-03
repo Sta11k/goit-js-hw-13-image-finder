@@ -43,12 +43,12 @@ const hendlerSubmin = (e) => {
   const searchValue = refs.inputBtnSearch.value;
   console.log(searchValue);
   const numberPage = 1;
-  const resultSearch = apiServise(searchValue, numberPage);
+  return resultSearch = apiServise(searchValue, numberPage);
 //  printMurkup(resultSearch)
   
 }
 
-const printMurkup = async () => {
+function printMurkup  (resultSearch) {
        
 
 
