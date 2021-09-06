@@ -25,8 +25,10 @@ const apiServise = async ( searchValue, numberPage )=> {
 
     try {
       const submitData = await fetch(`https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${searchValue}&page=${numberPage}&per_page=12&key=23145424-17de0e2191faefedd106abc58`);
-    const resultData = await submitData.json();
-     console.log(resultData);
+     const resultData = await submitData.json();
+     
+       return resultData;
+     
     } catch (error) {
       return "Error";
     } finally {
@@ -40,22 +42,59 @@ const apiServise = async ( searchValue, numberPage )=> {
 
 const hendlerSubmin = (e) => {
   e.preventDefault()
-  const searchValue = refs.inputBtnSearch.value;
-  console.log(searchValue);
-  const numberPage = 1;
-  return resultSearch = apiServise(searchValue, numberPage);
-//  printMurkup(resultSearch)
-  
+  renderMurkupColection()
+  // const searchValue = refs.inputBtnSearch.value;
+  // console.log(searchValue);
+  // const numberPage = 1;
+  // const resultData =  apiServise(searchValue, numberPage);
+
+  // printMurkup(renderColection) 
+
 }
 
-// function printMurkup  (resultSearch) {
-       
+const renderMurkupColection = async () => {
+   const searchValue = refs.inputBtnSearch.value;
+  console.log(searchValue);
+  const numberPage = 1;
+  const requestColection = await apiServise(searchValue, numberPage);
+  console.log('requestColection ', requestColection);
+  console.log(requestColection.hits);
+const arreyColection = requestColection.hits;
+  printMurkup(arreyColection);
+  
+  // renderColection(arreyColection);
+  
+  // const promises = requestColection.map(el => el);
+  // const resultPromis = await Promise.resolve(requestColection);
+  // return resultPromis;
+  // const    renderColection= ({ requestColection })=>{
+  // // arrey.forEach(el => printMurkup(el));
+  // const trabl = requestColection.forEach(el => el);
+  // return trabl;
+// };
+// console.log(renderColection());
+  // const promises = requestColection.forEach(el => el);
+  
+  // const keys = Object.entries(requestColection);
+  // const aaaa = () => keys.map(el => el);
+
+  };
+
+// const resultRendering = renderMurkupColection();
+// resultRendering.then(resultPromis => renderColection(resultPromis)).catch(console.error());
+
+// function renderColection( hits ){
+//   arrey.forEach(el => printMurkup(el));
+// // arrey.forEach(el => console.log(el));
+// };
 
 
+ function printMurkup(el ) {
+   
+    refs.printGalerry.insertAdjacentHTML('beforeend', murkup(el)) 
+  };
+  
 
-//   refs.printGalerry.insertAdjacentHTML('beforeend', murkup(resultSearch) )
-
-// }
 
 
 
