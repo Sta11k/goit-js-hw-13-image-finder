@@ -1,7 +1,8 @@
 import './sass/main.scss';
 import '@pnotify/core/dist/BrightTheme.css';
 // import apiServise from "./api/apiService";
- import murkup from "./tamplates/murkup.hbs"
+import murkup from "./tamplates/murkup.hbs"
+// import search from "./tamplates/search.hbs"
 import { alert, defaultModules } from '@pnotify/core';
 import * as PNotifyMobile from '@pnotify/mobile';
 
@@ -13,12 +14,15 @@ const refs = {
   printGalerry: document.querySelector(".gallery"),
   submitBtn:document.querySelector(".form__button--submit"),
   resetBtn: document.querySelector(".form__button--reset"),
+  title: document.querySelector(".title"),
+  container: document.querySelector(".container"),
+  loadMore:document.querySelector(".load__more"),
+  
 };
 
 // alert({
 //   text: 'Атата'
 // });
-  
 
 
 const apiServise = async ( searchValue, numberPage )=> {
@@ -43,59 +47,47 @@ const apiServise = async ( searchValue, numberPage )=> {
 const hendlerSubmin = (e) => {
   e.preventDefault()
   renderMurkupColection()
-  // const searchValue = refs.inputBtnSearch.value;
-  // console.log(searchValue);
-  // const numberPage = 1;
-  // const resultData =  apiServise(searchValue, numberPage);
-
-  // printMurkup(renderColection) 
-
+  creatLoadMoreBtn()
+  
 }
 
 const renderMurkupColection = async () => {
    const searchValue = refs.inputBtnSearch.value;
-  console.log(searchValue);
+  // console.log(searchValue);
   const numberPage = 1;
   const requestColection = await apiServise(searchValue, numberPage);
-  console.log('requestColection ', requestColection);
-  console.log(requestColection.hits);
+  // console.log('requestColection ', requestColection);
+  // console.log(requestColection.hits);
 const arreyColection = requestColection.hits;
   printMurkup(arreyColection);
-  
-  // renderColection(arreyColection);
-  
-  // const promises = requestColection.map(el => el);
-  // const resultPromis = await Promise.resolve(requestColection);
-  // return resultPromis;
-  // const    renderColection= ({ requestColection })=>{
-  // // arrey.forEach(el => printMurkup(el));
-  // const trabl = requestColection.forEach(el => el);
-  // return trabl;
-// };
-// console.log(renderColection());
-  // const promises = requestColection.forEach(el => el);
-  
-  // const keys = Object.entries(requestColection);
-  // const aaaa = () => keys.map(el => el);
-
   };
 
-// const resultRendering = renderMurkupColection();
-// resultRendering.then(resultPromis => renderColection(resultPromis)).catch(console.error());
 
-// function renderColection( hits ){
-//   arrey.forEach(el => printMurkup(el));
-// // arrey.forEach(el => console.log(el));
-// };
+  // parentElem.insertBefore(elem, nextSibling)
+function creatLoadMoreBtn() {
+ 
+  const loadMore = document.createElement('button');
+  loadMore.classList.add("load__more");
+  loadMore.textContent = "LOAD MORE";
+  refs.container.insertBefore(loadMore, null);
+
+}
 
 
  function printMurkup(el ) {
-   
-    refs.printGalerry.insertAdjacentHTML('beforeend', murkup(el)) 
+   refs.printGalerry.insertAdjacentHTML('beforeend', murkup(el)) 
   };
   
-
+const resetForm = (e) => {
+   refs.printGalerry.innerHTML = " "
+}
+ 
+const addNextImg = (e) => {
+  
+}
 
 
 
 refs.form.addEventListener('submit', hendlerSubmin);
+refs.resetBtn.addEventListener('click', resetForm);
+refs.loadMore.addEventListener('click', addNextImg);
