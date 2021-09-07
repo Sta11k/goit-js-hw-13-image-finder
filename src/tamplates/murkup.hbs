@@ -1,7 +1,8 @@
 {{#each this}}
 <li class="list__item" >
     <div class="photo-card">
-        <img src="{{this.webformatURL}}" alt="{{this.tags}}  />
+        
+        <img class="list__card--img" src="{{this.webformatURL}}" alt="{{this.tags}}"  />
 
         <div class="stats">
             <p class="stats-item">
@@ -21,6 +22,8 @@
                 {{this.comments}}
             </p>
         </div>
+
+       
     </div>
 </li>
 {{/each}}

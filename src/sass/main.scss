@@ -9,6 +9,7 @@
 @import '@pnotify/core/dist/BrightTheme.css';
 li {
   list-style: none;
+  background-color: aqua;
 }
 
 body {
@@ -62,6 +63,10 @@ body {
   grid-column-gap: 20px;
   grid-row-gap: 20px;
   justify-items: center;
+}
+
+.list__card--img {
+  width: 400px;
 }
 .form__button--reset {
   border-radius: 15%;
