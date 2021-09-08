@@ -16,13 +16,10 @@ const refs = {
   resetBtn: document.querySelector(".form__button--reset"),
   title: document.querySelector(".title"),
   container: document.querySelector(".container"),
-  loadMore:document.querySelector(".load__more"),
+  loadMore: document.querySelector(".load__more"),
+   containerStart:document.querySelector(".container__start"),
   
 };
-
-// alert({
-//   text: 'Атата'
-// });
 
 
 const apiServise = async ( searchValue, numberPage )=> {
@@ -34,12 +31,15 @@ const apiServise = async ( searchValue, numberPage )=> {
        return resultData;
      
     } catch (error) {
-      return "Error";
-    } finally {
-      alert({
+      return  alert({
           text: 'А что так можно было?'
-      });
-   }
+      });;
+    }
+  //   finally {
+  //     alert({
+  //         text: 'Вот это поворот?'
+  //     });
+  //  }
 }
    
 
@@ -50,11 +50,11 @@ const hendlerSubmin = (e) => {
   creatLoadMoreBtn()
   
 }
-
+let numberPage = 1;
 const renderMurkupColection = async () => {
    const searchValue = refs.inputBtnSearch.value;
   // console.log(searchValue);
-  const numberPage = 1;
+
   const requestColection = await apiServise(searchValue, numberPage);
   // console.log('requestColection ', requestColection);
   // console.log(requestColection.hits);
@@ -63,31 +63,50 @@ const arreyColection = requestColection.hits;
   };
 
 
-  // parentElem.insertBefore(elem, nextSibling)
+
 function creatLoadMoreBtn() {
  
-  const loadMore = document.createElement('button');
-  loadMore.classList.add("load__more");
-  loadMore.textContent = "LOAD MORE";
-  refs.container.insertBefore(loadMore, null);
-
-}
-
+  refs.loadMore.classList.add("invisible");
+  refs.containerStart.classList.add("invisible");
+ }
 
  function printMurkup(el ) {
    refs.printGalerry.insertAdjacentHTML('beforeend', murkup(el)) 
   };
   
 const resetForm = (e) => {
-   refs.printGalerry.innerHTML = " "
+  refs.printGalerry.innerHTML = " "
+  refs.loadMore.classList.remove("invisible")
+   refs.containerStart.classList.remove("invisible")
 }
  
 const addNextImg = (e) => {
-  
+  numberPage+=1
+  scrolElement()
 }
+
+const scrolElement = async ()=> {
+  await renderMurkupColection()
+  await  creatLoadMoreBtn()
+  await  refs.container.scrollIntoView({
+  behavior: 'smooth',
+  block: 'end',
+});
+
+}
+
+const toStart = (e) => {
+  refs.container.scrollIntoView({
+  behavior: 'smooth',
+  block: 'start',
+});
+
+}
+
 
 
 
 refs.form.addEventListener('submit', hendlerSubmin);
 refs.resetBtn.addEventListener('click', resetForm);
 refs.loadMore.addEventListener('click', addNextImg);
+refs.containerStart.addEventListener('click', toStart);
