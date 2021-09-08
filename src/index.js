@@ -46,10 +46,20 @@ const apiServise = async ( searchValue, numberPage )=> {
 
 const hendlerSubmin = (e) => {
   e.preventDefault()
-  renderMurkupColection()
-  creatLoadMoreBtn()
+  renderOll()
+  // renderMurkupColection()
+  // creatLoadMoreBtn()
   
 }
+
+const renderOll = async () => {
+  renderMurkupColection()
+  await  creatLoadMoreBtn()
+}
+
+
+
+
 let numberPage = 1;
 const renderMurkupColection = async () => {
    const searchValue = refs.inputBtnSearch.value;
