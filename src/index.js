@@ -53,7 +53,7 @@ const hendlerSubmin = (e) => {
 }
 
 const renderOll = async () => {
-  renderMurkupColection()
+  await renderMurkupColection()
   await  creatLoadMoreBtn()
 }
 
