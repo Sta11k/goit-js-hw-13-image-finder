@@ -29,6 +29,39 @@ body {
 
   //   margin-right: auto;
 }
+////////////////////////////////////
+.container {
+  height: 1200px;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #0E0E0E;
+ 
+  box-shadow: 0 0 2px rgba(141, 116, 116, 0.575) inset;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #0E0E0E;
+  border-radius: 8px;
+  border: 3px dashed  #685e5e;
+ 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  //  background-color: #939393;
+   background-color: #0E0E0E;
+   border: 3px dashed  #DC56C5;
+}
+
+
+//////////////////////////////////
+
+
+
 
 .form__input {
   height: 35px;
